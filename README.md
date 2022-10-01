@@ -9,7 +9,7 @@ Model Built : RF and GB
 Results:
 | | | | | |
 |-|-|-|-|-|
-|precision|recall |f1-score|support
+| |precision|recall |f1-score|support
 RF
 Class 0 | 0.93|0.83|0.88|102
 Class 1    |   0.85 |     0.94     | 0.90  |     105
