@@ -1,7 +1,6 @@
 # Credit_Card_Approval_Classification
 Application tool for predicting correct credit card customers ,the banks can maximize the profits.
 
-Built Pilot model on  ['Gender', 'Age', 'Debt', 'Ethnicity', 'Years Employed', 'Prior Default', 'Employed', 'Credit Score', 'Driving License', 'Income']
 
 
 Model Built : RF and GB
