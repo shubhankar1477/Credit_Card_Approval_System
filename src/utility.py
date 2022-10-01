@@ -5,7 +5,7 @@ import seaborn as sns
 from sklearn import metrics
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import precision_score, recall_score
-
+import pickle
 import matplotlib.pyplot as plt
 
 
@@ -38,17 +38,17 @@ def get_confusion_matrix_values(y_true, y_pred):
 
 
 def get_precision(y_true, y_pred):
-    return round(precision_score(y_true,y_pred) *100)
+    return (precision_score(y_true,y_pred) *100)
 
 def get_recall(y_true, y_pred):
-    return round(recall_score(y_true,y_pred) *100)
+    return (recall_score(y_true,y_pred) *100)
 
 def get_accuracy(y_true, y_pred):
-    return round(metrics.accuracy_score(yTest, ypred)*100)
+    return (metrics.accuracy_score(y_true, y_pred)*100)
 
 
 def get_f1_score(y_true, y_pred):
-    return round(metrics.f1_score)
+    return (metrics.f1_score(y_true, y_pred)*100)
 
 
 def plot_auc(modelname,xTest,yTest):
@@ -59,3 +59,15 @@ def plot_auc(modelname,xTest,yTest):
     plt.legend(loc=4)
     plt.show()
     
+def get_auc(modelname,xTest,yTest):
+    y_pred_proba = modelname.predict_proba(xTest)[::,1]
+    auc = metrics.roc_auc_score(yTest, y_pred_proba)
+    return auc
+
+def loadPickle(path):
+    with open(path, "rb") as f:
+        return pickle.load(f)
+
+
+def dumpPickle(model,name):
+    pickle.dump(model, open(name+".pkl", 'wb'))
